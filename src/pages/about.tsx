@@ -3,6 +3,8 @@ import { UserContext } from "../UserContext";
 
 export function About() {
   const { user } = useContext(UserContext);
+  console.log("About");
+  console.log(user);
 
   return (
     <div>

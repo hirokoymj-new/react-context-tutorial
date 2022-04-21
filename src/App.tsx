@@ -2,13 +2,9 @@ import React, { useState, useMemo } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { Index } from "./pages";
 import { About } from "./pages/about";
-import { UserContext } from "./UserContext";
+import { UserProvider } from "./UserProvider";
 
 function AppRouter() {
-  const [user, setUser] = useState(null);
-
-  const value = useMemo(() => ({ user, setUser }), [user, setUser]);
-
   return (
     <Router>
       <div>
@@ -22,10 +18,10 @@ function AppRouter() {
             </li>
           </ul>
         </nav>
-        <UserContext.Provider value={value}>
+        <UserProvider>
           <Route path="/" exact component={Index} />
           <Route path="/about/" component={About} />
-        </UserContext.Provider>
+        </UserProvider>
       </div>
     </Router>
   );

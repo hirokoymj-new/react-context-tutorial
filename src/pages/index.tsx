@@ -12,19 +12,17 @@ export function Index() {
       {user ? (
         <button
           onClick={() => {
-            // call logout
-            setUser(null);
-          }}
-        >
+            console.log("logout");
+            setUser && setUser(null);
+          }}>
           logout
         </button>
       ) : (
         <button
           onClick={async () => {
             const user = await login();
-            setUser(user);
-          }}
-        >
+            setUser && setUser(user);
+          }}>
           login
         </button>
       )}

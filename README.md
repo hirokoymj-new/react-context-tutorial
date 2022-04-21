@@ -1,3 +1,3 @@
-# React Context Tutorial
+# React Context Basic
 
 Hiroko
