@@ -6,9 +6,7 @@ interface IProps {
 }
 
 export const UserProvider = ({ children }: IProps) => {
-  const [user, setUser] = useState<IUser>(defaultState.user);
-  console.log("UserProvider");
-  console.log(user);
+  const [user, setUser] = useState<IUser | null>(defaultState.user);
 
   return (
     <UserContext.Provider

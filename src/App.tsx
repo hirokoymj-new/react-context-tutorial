@@ -1,10 +1,10 @@
-import React, { useState, useMemo } from "react";
+import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { Index } from "./pages";
 import { About } from "./pages/about";
 import { UserProvider } from "./UserProvider";
 
-function AppRouter() {
+const App = () => {
   return (
     <Router>
       <div>
@@ -25,6 +25,6 @@ function AppRouter() {
       </div>
     </Router>
   );
-}
+};
 
-export default AppRouter;
+export default App;
