@@ -10,6 +10,7 @@ export interface IUser {
   id: number;
   username: string;
   email: string;
+  token: string;
 }
 
 export const defaultState = {
@@ -17,6 +18,7 @@ export const defaultState = {
     id: 1,
     username: "hiroko",
     email: "hiroko@test.com",
+    token: "as;dflaksjdf;asdlkaj",
   },
 };
 

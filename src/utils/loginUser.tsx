@@ -3,5 +3,6 @@ export const loginUser = async () => {
     id: 4,
     username: "bob",
     email: "bob@bob.com",
+    token: "asdfa;sldfjasl;dk",
   };
 };
