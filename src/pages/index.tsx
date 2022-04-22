@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 import { UserContext } from "../UserContext";
-import { login } from "../utils/login";
+import { loginUser } from "../utils/loginUser";
 
 export function Index() {
-  const { user, setUser } = useContext(UserContext);
+  const { user, login, logout } = useContext(UserContext);
 
   return (
     <div>
@@ -12,16 +12,15 @@ export function Index() {
       {user ? (
         <button
           onClick={() => {
-            console.log("logout");
-            setUser && setUser(null);
+            logout();
           }}>
           logout
         </button>
       ) : (
         <button
           onClick={async () => {
-            const user = await login();
-            setUser && setUser(user);
+            const user = await loginUser();
+            login(user);
           }}>
           login
         </button>

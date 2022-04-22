@@ -8,11 +8,20 @@ interface IProps {
 export const UserProvider = ({ children }: IProps) => {
   const [user, setUser] = useState<IUser | null>(defaultState.user);
 
+  const logout = () => {
+    setUser(null);
+  };
+
+  const login = (user: IUser) => {
+    setUser(user);
+  };
+
   return (
     <UserContext.Provider
       value={{
         user,
-        setUser,
+        logout,
+        login,
       }}>
       {children}
     </UserContext.Provider>

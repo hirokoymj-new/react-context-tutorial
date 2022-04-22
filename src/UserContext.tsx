@@ -2,7 +2,8 @@ import { createContext } from "react";
 
 export interface IUserContext {
   user: IUser | null;
-  setUser?: (value: IUser | null) => void;
+  logout: () => void;
+  login: (user: IUser) => void;
 }
 
 export interface IUser {
@@ -19,5 +20,4 @@ export const defaultState = {
   },
 };
 
-// export const UserContext = createContext<Partial<IUserContext>>({});
 export const UserContext = createContext<IUserContext>({} as IUserContext);
