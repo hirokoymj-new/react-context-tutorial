@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
-import { UserContext } from "../UserContext";
+import { UserContext, IUser, IUserContext } from "../UserContext";
 import { loginUser } from "../utils/loginUser";
 
-export function Index() {
+export const Index = () => {
   const { user, login, logout } = useContext(UserContext);
 
   return (
@@ -27,4 +27,4 @@ export function Index() {
       )}
     </div>
   );
-}
+};

@@ -1,11 +1,24 @@
 import React, { useReducer } from "react";
 import { UserContext, IUser } from "./UserContext";
 
-interface IProps {
-  children: React.ReactNode;
+interface InitialState {
+  user: IUser | null;
 }
 
-const initialState = { user: null };
+const initialState: InitialState = { user: null };
+
+if (localStorage.getItem("token")) {
+  const token = localStorage.getItem("token") as string;
+  if (token) {
+    const existUser = {
+      id: 4,
+      username: "bob",
+      email: "bob@bob.com",
+      token,
+    };
+    initialState.user = existUser;
+  }
+}
 
 interface AuthAction {
   type: string;
@@ -33,7 +46,7 @@ function authReducer(state: AuthState, action: AuthAction): AuthState {
   }
 }
 
-export const UserProvider = ({ children }: IProps) => {
+export const UserProvider = ({ children }: { children: React.ReactNode }) => {
   // const [user, setUser] = useState<IUser | null>(null);
   const [state, dispatch] = useReducer(authReducer, initialState);
 

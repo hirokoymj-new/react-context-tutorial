@@ -1,11 +1,5 @@
 import { createContext } from "react";
 
-export interface IUserContext {
-  user: IUser | null;
-  logout: () => void;
-  login: (user: IUser) => void;
-}
-
 export interface IUser {
   id: number;
   username: string;
@@ -13,13 +7,11 @@ export interface IUser {
   token: string;
 }
 
-export const defaultState = {
-  user: {
-    id: 1,
-    username: "hiroko",
-    email: "hiroko@test.com",
-    token: "as;dflaksjdf;asdlkaj",
-  },
-};
+export interface IUserContext {
+  user: IUser | null;
+  logout: () => void;
+  login: (user: IUser) => void;
+}
 
-export const UserContext = createContext<IUserContext>({} as IUserContext);
+// export const UserContext = createContext<IUserContext | null>(null);
+export const UserContext = createContext({} as IUserContext);
